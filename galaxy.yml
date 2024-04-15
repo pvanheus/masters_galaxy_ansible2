@@ -1,0 +1,6 @@
+---
+- hosts: galaxyservers
+  become: true
+  become_user: root
+  roles:
+    - ilifu-node-role

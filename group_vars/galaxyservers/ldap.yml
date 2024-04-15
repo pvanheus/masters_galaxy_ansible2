@@ -1,0 +1,4 @@
+---
+ldapserver:
+  name: ldapinternal.ilifu.ac.za
+  ip: 10.102.37.134

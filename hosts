@@ -1,0 +1,5 @@
+[galaxyservers]
+galaxy-masters1.sanbi.ac.za ansible_user=ubuntu
+
+[dbservers:children]
+galaxyservers

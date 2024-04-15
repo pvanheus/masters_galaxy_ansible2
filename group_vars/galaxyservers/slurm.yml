@@ -1,0 +1,9 @@
+cuda_path: /software/common/cuda/12.1.0_530.30.02
+slurm_version: 23.11.1
+slurm_cluster_name: ilifu-slurm2021
+slurm_controller:
+  name: slurm2021-controller
+  ip: 10.102.37.69
+slurm_database:
+  name: slurm-database
+  ip: 10.102.37.10
