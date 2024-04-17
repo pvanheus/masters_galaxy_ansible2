@@ -4,3 +4,33 @@
   become_user: root
   roles:
     - ilifu-node-role
+
+- hosts: dbservers
+  become: true
+  become_user: root
+  pre_tasks:
+    - name: Install Dependencies
+      package:
+        name: 'acl'
+  roles:
+    - galaxyproject.postgresql
+    - role: galaxyproject.postgresql_objects
+      become: true
+      become_user: postgres
+
+- hosts: galaxyservers
+  become: true
+  become_user: root
+  vars_files:
+    - group_vars/galaxyservers/secret.yml  
+  pre_tasks:
+    - name: Install Dependencies
+      package:
+        name: ['acl', 'bzip2', 'git', 'make', 'tar', 'python3-venv', 'python3-setuptools']
+  roles:
+    - galaxyproject.galaxy
+    - role: galaxyproject.miniconda
+      become: true
+      become_user: "{{ galaxy_user_name }}"
+    - galaxyproject.nginx
+    
