@@ -12,6 +12,24 @@
     - name: Install Dependencies
       package:
         name: 'acl'
+    - name: Create Apptainer Config Dir
+      file: 
+        path: /usr/local/etc/singularity
+        state: directory
+        mode: 0755
+        owner: root
+        group: root
+    - name: Install Apptainer Config Files  # these are copied from Ilifu's /usr/local/etc/singularity
+      copy:
+        src: "singularity/{{ item }}"
+        dest: /usr/local/etc/singularity
+        mode: 0644
+        owner: root
+        group: root
+      with_items:
+        - singularity.conf
+        - ecl.toml
+        - capability.json
   roles:
     - galaxyproject.postgresql
     - role: galaxyproject.postgresql_objects
@@ -28,6 +46,7 @@
       package:
         name: ['acl', 'bzip2', 'git', 'make', 'tar', 'python3-venv', 'python3-setuptools']
   roles:
+    - galaxyproject.tusd  
     - galaxyproject.galaxy
     - role: galaxyproject.miniconda
       become: true

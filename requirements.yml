@@ -2,11 +2,11 @@
 # During development phase, this is hand-installed using git
 # - src: https://github.com/pvanheus/ilifu-node-role
 - src: galaxyproject.galaxy
-  version: 0.10.14
+  version: 0.10.21
 - src: galaxyproject.nginx
   version: 0.7.1
 - src: galaxyproject.postgresql
-  version: 1.1.2
+  version: 1.1.5
 - src: galaxyproject.postgresql_objects
   version: 1.2.0
 - src: galaxyproject.miniconda
@@ -15,3 +15,6 @@
   version: 0.1.11
 - galaxyproject.repos
 - galaxyproject.slurm
+# TUS (uploads)
+- name: galaxyproject.tusd
+  version: 0.0.1
