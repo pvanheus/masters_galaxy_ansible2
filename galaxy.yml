@@ -30,6 +30,7 @@
         - singularity.conf
         - ecl.toml
         - capability.json
+        - remote.yaml
   roles:
     - galaxyproject.postgresql
     - role: galaxyproject.postgresql_objects
@@ -48,6 +49,7 @@
   roles:
     - galaxyproject.tusd  
     - galaxyproject.galaxy
+    - usegalaxy_eu.tpv_auto_lint    
     - role: galaxyproject.miniconda
       become: true
       become_user: "{{ galaxy_user_name }}"
